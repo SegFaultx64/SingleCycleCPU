@@ -21,7 +21,7 @@
 module InputOrTwoMux(
     input [16:0] Input,
     output reg [16:0] Output,
-    input Selection
+    input [1:0] Selection
     );
 	 
 	always @ (Selection or Input)
@@ -29,6 +29,7 @@ module InputOrTwoMux(
 		case(Selection) 
 			1'b0 : Output = Input;
 			1'b1 : Output = 16'b10;
+			2 : Output = 4;
 		endcase 
 	end
 

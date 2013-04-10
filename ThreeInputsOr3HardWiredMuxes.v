@@ -22,11 +22,12 @@ module ThreeInputsOr3HardWiredMuxes(
     input [16:0] Input1,
     input [16:0] Input2,
     input [16:0] Input3,
+	 input [16:0] PC,
     input [3:0] Selection,
     output reg [16:0] Output
     );
 	 
-	always @ (Selection or Input1 or Input2 or Input3)
+	always @ (Selection or Input1 or Input2 or Input3 or PC)
 	begin
 		if( Selection == 0)
 			Output = Input1;
@@ -40,6 +41,8 @@ module ThreeInputsOr3HardWiredMuxes(
 			Output = 16'b11001000;
 		if( Selection == 5)
 			Output = -1;
+		if( Selection == 6)
+			Output = PC;
 	end
 
 endmodule

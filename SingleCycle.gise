@@ -56,6 +56,9 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="ALU_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="ALU_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ALU_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="BranchSelectionMux.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="BranchSelectionMux.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="BranchSelectionMux.xst"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="GiantMux_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="GiantMux_tb_stx_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="InpurOr0Or1_isim_beh.exe"/>
@@ -70,6 +73,9 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="InputOrZeroMux.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="InputOrZeroMux.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="InputOrZeroMux.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ThreeInputsOr3HardWiredMuxes.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="ThreeInputsOr3HardWiredMuxes.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="ThreeInputsOr3HardWiredMuxes.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ThreeInputsOr3HardWiredMuxes_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ThreeInputsOr3HardWiredMuxes_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="ThreeInputsOr3HardWiredMuxes_tb_isim_beh.wdb"/>
