@@ -1,0 +1,429 @@
+--------------------------------------------------------------------------------
+Release 13.4 Trace  (lin64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+/usr/local/Xilinx/13.4/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3
+-s 5 -n 3 -fastpaths -xml ALU.twx ALU.ncd -o ALU.twr ALU.pcf
+
+Design file:              ALU.ncd
+Physical constraint file: ALU.pcf
+Device,package,speed:     xc3s100e,vq100,-5 (PRODUCTION 1.27 2012-01-07)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+INPUTA<0>      |EQUAL          |    8.692|
+INPUTA<0>      |OUT<0>         |    8.739|
+INPUTA<0>      |OUT<1>         |    9.842|
+INPUTA<0>      |OUT<2>         |   10.165|
+INPUTA<0>      |OUT<3>         |   10.053|
+INPUTA<0>      |OUT<4>         |    9.761|
+INPUTA<0>      |OUT<5>         |    9.977|
+INPUTA<0>      |OUT<6>         |    9.424|
+INPUTA<0>      |OUT<7>         |    9.623|
+INPUTA<0>      |OUT<8>         |   10.642|
+INPUTA<0>      |OUT<9>         |   10.357|
+INPUTA<0>      |OUT<10>        |   10.148|
+INPUTA<0>      |OUT<11>        |   10.649|
+INPUTA<0>      |OUT<12>        |   10.133|
+INPUTA<0>      |OUT<13>        |   10.367|
+INPUTA<0>      |OUT<14>        |   10.327|
+INPUTA<0>      |OUT<15>        |   10.573|
+INPUTA<0>      |ZERO           |   12.458|
+INPUTA<1>      |EQUAL          |    9.169|
+INPUTA<1>      |OUT<1>         |    9.638|
+INPUTA<1>      |OUT<2>         |   10.178|
+INPUTA<1>      |OUT<3>         |   10.066|
+INPUTA<1>      |OUT<4>         |    9.774|
+INPUTA<1>      |OUT<5>         |    9.990|
+INPUTA<1>      |OUT<6>         |    9.437|
+INPUTA<1>      |OUT<7>         |    9.636|
+INPUTA<1>      |OUT<8>         |   10.655|
+INPUTA<1>      |OUT<9>         |   10.370|
+INPUTA<1>      |OUT<10>        |   10.161|
+INPUTA<1>      |OUT<11>        |   10.662|
+INPUTA<1>      |OUT<12>        |   10.146|
+INPUTA<1>      |OUT<13>        |   10.380|
+INPUTA<1>      |OUT<14>        |   10.340|
+INPUTA<1>      |OUT<15>        |   10.586|
+INPUTA<1>      |ZERO           |   12.471|
+INPUTA<2>      |EQUAL          |    8.673|
+INPUTA<2>      |OUT<2>         |    9.571|
+INPUTA<2>      |OUT<3>         |    9.610|
+INPUTA<2>      |OUT<4>         |    9.555|
+INPUTA<2>      |OUT<5>         |    9.771|
+INPUTA<2>      |OUT<6>         |    9.218|
+INPUTA<2>      |OUT<7>         |    9.417|
+INPUTA<2>      |OUT<8>         |   10.436|
+INPUTA<2>      |OUT<9>         |   10.151|
+INPUTA<2>      |OUT<10>        |    9.942|
+INPUTA<2>      |OUT<11>        |   10.443|
+INPUTA<2>      |OUT<12>        |    9.927|
+INPUTA<2>      |OUT<13>        |   10.161|
+INPUTA<2>      |OUT<14>        |   10.121|
+INPUTA<2>      |OUT<15>        |   10.367|
+INPUTA<2>      |ZERO           |   12.252|
+INPUTA<3>      |EQUAL          |    8.594|
+INPUTA<3>      |OUT<3>         |    9.181|
+INPUTA<3>      |OUT<4>         |    9.343|
+INPUTA<3>      |OUT<5>         |    9.559|
+INPUTA<3>      |OUT<6>         |    9.006|
+INPUTA<3>      |OUT<7>         |    9.205|
+INPUTA<3>      |OUT<8>         |   10.224|
+INPUTA<3>      |OUT<9>         |    9.939|
+INPUTA<3>      |OUT<10>        |    9.730|
+INPUTA<3>      |OUT<11>        |   10.231|
+INPUTA<3>      |OUT<12>        |    9.715|
+INPUTA<3>      |OUT<13>        |    9.949|
+INPUTA<3>      |OUT<14>        |    9.909|
+INPUTA<3>      |OUT<15>        |   10.155|
+INPUTA<3>      |ZERO           |   12.040|
+INPUTA<4>      |EQUAL          |    8.866|
+INPUTA<4>      |OUT<4>         |    8.790|
+INPUTA<4>      |OUT<5>         |    9.157|
+INPUTA<4>      |OUT<6>         |    8.841|
+INPUTA<4>      |OUT<7>         |    9.040|
+INPUTA<4>      |OUT<8>         |   10.059|
+INPUTA<4>      |OUT<9>         |    9.774|
+INPUTA<4>      |OUT<10>        |    9.565|
+INPUTA<4>      |OUT<11>        |   10.066|
+INPUTA<4>      |OUT<12>        |    9.550|
+INPUTA<4>      |OUT<13>        |    9.784|
+INPUTA<4>      |OUT<14>        |    9.744|
+INPUTA<4>      |OUT<15>        |    9.990|
+INPUTA<4>      |ZERO           |   11.875|
+INPUTA<5>      |EQUAL          |    8.605|
+INPUTA<5>      |OUT<5>         |    9.367|
+INPUTA<5>      |OUT<6>         |    9.268|
+INPUTA<5>      |OUT<7>         |    9.467|
+INPUTA<5>      |OUT<8>         |   10.486|
+INPUTA<5>      |OUT<9>         |   10.201|
+INPUTA<5>      |OUT<10>        |    9.992|
+INPUTA<5>      |OUT<11>        |   10.493|
+INPUTA<5>      |OUT<12>        |    9.977|
+INPUTA<5>      |OUT<13>        |   10.211|
+INPUTA<5>      |OUT<14>        |   10.171|
+INPUTA<5>      |OUT<15>        |   10.417|
+INPUTA<5>      |ZERO           |   12.302|
+INPUTA<6>      |EQUAL          |    7.915|
+INPUTA<6>      |OUT<6>         |    8.444|
+INPUTA<6>      |OUT<7>         |    8.794|
+INPUTA<6>      |OUT<8>         |   10.050|
+INPUTA<6>      |OUT<9>         |    9.765|
+INPUTA<6>      |OUT<10>        |    9.556|
+INPUTA<6>      |OUT<11>        |   10.057|
+INPUTA<6>      |OUT<12>        |    9.541|
+INPUTA<6>      |OUT<13>        |    9.775|
+INPUTA<6>      |OUT<14>        |    9.735|
+INPUTA<6>      |OUT<15>        |    9.981|
+INPUTA<6>      |ZERO           |   11.866|
+INPUTA<7>      |EQUAL          |    9.067|
+INPUTA<7>      |OUT<7>         |    9.206|
+INPUTA<7>      |OUT<8>         |   10.679|
+INPUTA<7>      |OUT<9>         |   10.394|
+INPUTA<7>      |OUT<10>        |   10.185|
+INPUTA<7>      |OUT<11>        |   10.686|
+INPUTA<7>      |OUT<12>        |   10.170|
+INPUTA<7>      |OUT<13>        |   10.404|
+INPUTA<7>      |OUT<14>        |   10.364|
+INPUTA<7>      |OUT<15>        |   10.610|
+INPUTA<7>      |ZERO           |   12.495|
+INPUTA<8>      |EQUAL          |    8.049|
+INPUTA<8>      |OUT<8>         |    9.508|
+INPUTA<8>      |OUT<9>         |    9.374|
+INPUTA<8>      |OUT<10>        |    9.402|
+INPUTA<8>      |OUT<11>        |    9.903|
+INPUTA<8>      |OUT<12>        |    9.387|
+INPUTA<8>      |OUT<13>        |    9.621|
+INPUTA<8>      |OUT<14>        |    9.581|
+INPUTA<8>      |OUT<15>        |    9.827|
+INPUTA<8>      |ZERO           |   11.712|
+INPUTA<9>      |EQUAL          |    8.293|
+INPUTA<9>      |OUT<9>         |    8.729|
+INPUTA<9>      |OUT<10>        |    8.974|
+INPUTA<9>      |OUT<11>        |    9.475|
+INPUTA<9>      |OUT<12>        |    8.959|
+INPUTA<9>      |OUT<13>        |    9.193|
+INPUTA<9>      |OUT<14>        |    9.153|
+INPUTA<9>      |OUT<15>        |    9.399|
+INPUTA<9>      |ZERO           |   11.284|
+INPUTA<10>     |EQUAL          |    8.861|
+INPUTA<10>     |OUT<10>        |    9.290|
+INPUTA<10>     |OUT<11>        |    9.942|
+INPUTA<10>     |OUT<12>        |    9.663|
+INPUTA<10>     |OUT<13>        |    9.897|
+INPUTA<10>     |OUT<14>        |    9.857|
+INPUTA<10>     |OUT<15>        |   10.103|
+INPUTA<10>     |ZERO           |   11.766|
+INPUTA<11>     |EQUAL          |    8.408|
+INPUTA<11>     |OUT<11>        |    9.430|
+INPUTA<11>     |OUT<12>        |    9.368|
+INPUTA<11>     |OUT<13>        |    9.602|
+INPUTA<11>     |OUT<14>        |    9.562|
+INPUTA<11>     |OUT<15>        |    9.808|
+INPUTA<11>     |ZERO           |   11.471|
+INPUTA<12>     |EQUAL          |    8.514|
+INPUTA<12>     |OUT<12>        |    9.117|
+INPUTA<12>     |OUT<13>        |    9.502|
+INPUTA<12>     |OUT<14>        |    9.699|
+INPUTA<12>     |OUT<15>        |    9.945|
+INPUTA<12>     |ZERO           |   11.608|
+INPUTA<13>     |EQUAL          |    8.346|
+INPUTA<13>     |OUT<13>        |    9.317|
+INPUTA<13>     |OUT<14>        |    9.731|
+INPUTA<13>     |OUT<15>        |    9.977|
+INPUTA<13>     |ZERO           |   11.640|
+INPUTA<14>     |EQUAL          |    7.937|
+INPUTA<14>     |OUT<14>        |    9.165|
+INPUTA<14>     |OUT<15>        |    9.562|
+INPUTA<14>     |ZERO           |   11.225|
+INPUTA<15>     |EQUAL          |    8.327|
+INPUTA<15>     |OUT<15>        |    9.509|
+INPUTA<15>     |ZERO           |   11.172|
+INPUTB<0>      |EQUAL          |    8.012|
+INPUTB<0>      |OUT<0>         |    8.690|
+INPUTB<0>      |OUT<1>         |    9.793|
+INPUTB<0>      |OUT<2>         |   10.116|
+INPUTB<0>      |OUT<3>         |   10.004|
+INPUTB<0>      |OUT<4>         |    9.712|
+INPUTB<0>      |OUT<5>         |    9.928|
+INPUTB<0>      |OUT<6>         |    9.375|
+INPUTB<0>      |OUT<7>         |    9.574|
+INPUTB<0>      |OUT<8>         |   10.593|
+INPUTB<0>      |OUT<9>         |   10.308|
+INPUTB<0>      |OUT<10>        |   10.099|
+INPUTB<0>      |OUT<11>        |   10.600|
+INPUTB<0>      |OUT<12>        |   10.084|
+INPUTB<0>      |OUT<13>        |   10.318|
+INPUTB<0>      |OUT<14>        |   10.278|
+INPUTB<0>      |OUT<15>        |   10.524|
+INPUTB<0>      |ZERO           |   12.409|
+INPUTB<1>      |EQUAL          |    8.663|
+INPUTB<1>      |OUT<1>         |    9.374|
+INPUTB<1>      |OUT<2>         |    9.914|
+INPUTB<1>      |OUT<3>         |    9.802|
+INPUTB<1>      |OUT<4>         |    9.510|
+INPUTB<1>      |OUT<5>         |    9.726|
+INPUTB<1>      |OUT<6>         |    9.173|
+INPUTB<1>      |OUT<7>         |    9.372|
+INPUTB<1>      |OUT<8>         |   10.391|
+INPUTB<1>      |OUT<9>         |   10.106|
+INPUTB<1>      |OUT<10>        |    9.897|
+INPUTB<1>      |OUT<11>        |   10.398|
+INPUTB<1>      |OUT<12>        |    9.882|
+INPUTB<1>      |OUT<13>        |   10.116|
+INPUTB<1>      |OUT<14>        |   10.076|
+INPUTB<1>      |OUT<15>        |   10.322|
+INPUTB<1>      |ZERO           |   12.207|
+INPUTB<2>      |EQUAL          |    8.289|
+INPUTB<2>      |OUT<2>         |    9.377|
+INPUTB<2>      |OUT<3>         |    9.416|
+INPUTB<2>      |OUT<4>         |    9.361|
+INPUTB<2>      |OUT<5>         |    9.577|
+INPUTB<2>      |OUT<6>         |    9.024|
+INPUTB<2>      |OUT<7>         |    9.223|
+INPUTB<2>      |OUT<8>         |   10.242|
+INPUTB<2>      |OUT<9>         |    9.957|
+INPUTB<2>      |OUT<10>        |    9.748|
+INPUTB<2>      |OUT<11>        |   10.249|
+INPUTB<2>      |OUT<12>        |    9.733|
+INPUTB<2>      |OUT<13>        |    9.967|
+INPUTB<2>      |OUT<14>        |    9.927|
+INPUTB<2>      |OUT<15>        |   10.173|
+INPUTB<2>      |ZERO           |   12.058|
+INPUTB<3>      |EQUAL          |    9.026|
+INPUTB<3>      |OUT<3>         |    9.460|
+INPUTB<3>      |OUT<4>         |    9.622|
+INPUTB<3>      |OUT<5>         |    9.838|
+INPUTB<3>      |OUT<6>         |    9.285|
+INPUTB<3>      |OUT<7>         |    9.484|
+INPUTB<3>      |OUT<8>         |   10.503|
+INPUTB<3>      |OUT<9>         |   10.218|
+INPUTB<3>      |OUT<10>        |   10.009|
+INPUTB<3>      |OUT<11>        |   10.510|
+INPUTB<3>      |OUT<12>        |    9.994|
+INPUTB<3>      |OUT<13>        |   10.228|
+INPUTB<3>      |OUT<14>        |   10.188|
+INPUTB<3>      |OUT<15>        |   10.434|
+INPUTB<3>      |ZERO           |   12.319|
+INPUTB<4>      |EQUAL          |    8.564|
+INPUTB<4>      |OUT<4>         |    9.057|
+INPUTB<4>      |OUT<5>         |    9.424|
+INPUTB<4>      |OUT<6>         |    9.108|
+INPUTB<4>      |OUT<7>         |    9.307|
+INPUTB<4>      |OUT<8>         |   10.326|
+INPUTB<4>      |OUT<9>         |   10.041|
+INPUTB<4>      |OUT<10>        |    9.832|
+INPUTB<4>      |OUT<11>        |   10.333|
+INPUTB<4>      |OUT<12>        |    9.817|
+INPUTB<4>      |OUT<13>        |   10.051|
+INPUTB<4>      |OUT<14>        |   10.011|
+INPUTB<4>      |OUT<15>        |   10.257|
+INPUTB<4>      |ZERO           |   12.142|
+INPUTB<5>      |EQUAL          |    8.715|
+INPUTB<5>      |OUT<5>         |    9.378|
+INPUTB<5>      |OUT<6>         |    9.279|
+INPUTB<5>      |OUT<7>         |    9.478|
+INPUTB<5>      |OUT<8>         |   10.497|
+INPUTB<5>      |OUT<9>         |   10.212|
+INPUTB<5>      |OUT<10>        |   10.003|
+INPUTB<5>      |OUT<11>        |   10.504|
+INPUTB<5>      |OUT<12>        |    9.988|
+INPUTB<5>      |OUT<13>        |   10.222|
+INPUTB<5>      |OUT<14>        |   10.182|
+INPUTB<5>      |OUT<15>        |   10.428|
+INPUTB<5>      |ZERO           |   12.313|
+INPUTB<6>      |EQUAL          |    8.454|
+INPUTB<6>      |OUT<6>         |    8.247|
+INPUTB<6>      |OUT<7>         |    8.597|
+INPUTB<6>      |OUT<8>         |    9.853|
+INPUTB<6>      |OUT<9>         |    9.568|
+INPUTB<6>      |OUT<10>        |    9.359|
+INPUTB<6>      |OUT<11>        |    9.860|
+INPUTB<6>      |OUT<12>        |    9.344|
+INPUTB<6>      |OUT<13>        |    9.578|
+INPUTB<6>      |OUT<14>        |    9.538|
+INPUTB<6>      |OUT<15>        |    9.784|
+INPUTB<6>      |ZERO           |   11.669|
+INPUTB<7>      |EQUAL          |    8.190|
+INPUTB<7>      |OUT<7>         |    8.748|
+INPUTB<7>      |OUT<8>         |   10.221|
+INPUTB<7>      |OUT<9>         |    9.936|
+INPUTB<7>      |OUT<10>        |    9.727|
+INPUTB<7>      |OUT<11>        |   10.228|
+INPUTB<7>      |OUT<12>        |    9.712|
+INPUTB<7>      |OUT<13>        |    9.946|
+INPUTB<7>      |OUT<14>        |    9.906|
+INPUTB<7>      |OUT<15>        |   10.152|
+INPUTB<7>      |ZERO           |   12.037|
+INPUTB<8>      |EQUAL          |    8.648|
+INPUTB<8>      |OUT<8>         |    9.414|
+INPUTB<8>      |OUT<9>         |    9.280|
+INPUTB<8>      |OUT<10>        |    9.308|
+INPUTB<8>      |OUT<11>        |    9.809|
+INPUTB<8>      |OUT<12>        |    9.293|
+INPUTB<8>      |OUT<13>        |    9.527|
+INPUTB<8>      |OUT<14>        |    9.487|
+INPUTB<8>      |OUT<15>        |    9.733|
+INPUTB<8>      |ZERO           |   11.618|
+INPUTB<9>      |EQUAL          |    7.710|
+INPUTB<9>      |OUT<9>         |    8.828|
+INPUTB<9>      |OUT<10>        |    9.073|
+INPUTB<9>      |OUT<11>        |    9.574|
+INPUTB<9>      |OUT<12>        |    9.058|
+INPUTB<9>      |OUT<13>        |    9.292|
+INPUTB<9>      |OUT<14>        |    9.252|
+INPUTB<9>      |OUT<15>        |    9.498|
+INPUTB<9>      |ZERO           |   11.383|
+INPUTB<10>     |EQUAL          |    8.101|
+INPUTB<10>     |OUT<10>        |    8.569|
+INPUTB<10>     |OUT<11>        |    9.221|
+INPUTB<10>     |OUT<12>        |    8.942|
+INPUTB<10>     |OUT<13>        |    9.176|
+INPUTB<10>     |OUT<14>        |    9.136|
+INPUTB<10>     |OUT<15>        |    9.382|
+INPUTB<10>     |ZERO           |   11.045|
+INPUTB<11>     |EQUAL          |    7.840|
+INPUTB<11>     |OUT<11>        |    8.934|
+INPUTB<11>     |OUT<12>        |    8.872|
+INPUTB<11>     |OUT<13>        |    9.106|
+INPUTB<11>     |OUT<14>        |    9.066|
+INPUTB<11>     |OUT<15>        |    9.312|
+INPUTB<11>     |ZERO           |   10.975|
+INPUTB<12>     |EQUAL          |    7.894|
+INPUTB<12>     |OUT<12>        |    8.453|
+INPUTB<12>     |OUT<13>        |    8.838|
+INPUTB<12>     |OUT<14>        |    9.035|
+INPUTB<12>     |OUT<15>        |    9.281|
+INPUTB<12>     |ZERO           |   10.944|
+INPUTB<13>     |EQUAL          |    7.494|
+INPUTB<13>     |OUT<13>        |    8.781|
+INPUTB<13>     |OUT<14>        |    9.195|
+INPUTB<13>     |OUT<15>        |    9.441|
+INPUTB<13>     |ZERO           |   11.104|
+INPUTB<14>     |EQUAL          |    8.046|
+INPUTB<14>     |OUT<14>        |    9.166|
+INPUTB<14>     |OUT<15>        |    9.563|
+INPUTB<14>     |ZERO           |   11.226|
+INPUTB<15>     |EQUAL          |    8.144|
+INPUTB<15>     |OUT<15>        |    8.594|
+INPUTB<15>     |ZERO           |   10.257|
+OP<0>          |OUT<0>         |    9.717|
+OP<0>          |OUT<1>         |   10.669|
+OP<0>          |OUT<2>         |   10.829|
+OP<0>          |OUT<3>         |   10.717|
+OP<0>          |OUT<4>         |   10.425|
+OP<0>          |OUT<5>         |   10.641|
+OP<0>          |OUT<6>         |   10.088|
+OP<0>          |OUT<7>         |   10.287|
+OP<0>          |OUT<8>         |   11.306|
+OP<0>          |OUT<9>         |   11.021|
+OP<0>          |OUT<10>        |   10.812|
+OP<0>          |OUT<11>        |   11.313|
+OP<0>          |OUT<12>        |   10.797|
+OP<0>          |OUT<13>        |   11.031|
+OP<0>          |OUT<14>        |   10.991|
+OP<0>          |OUT<15>        |   11.237|
+OP<0>          |ZERO           |   13.122|
+OP<1>          |OUT<0>         |   10.228|
+OP<1>          |OUT<1>         |   11.180|
+OP<1>          |OUT<2>         |   11.203|
+OP<1>          |OUT<3>         |   11.091|
+OP<1>          |OUT<4>         |   10.799|
+OP<1>          |OUT<5>         |   11.015|
+OP<1>          |OUT<6>         |   10.462|
+OP<1>          |OUT<7>         |   10.661|
+OP<1>          |OUT<8>         |   11.680|
+OP<1>          |OUT<9>         |   11.395|
+OP<1>          |OUT<10>        |   11.186|
+OP<1>          |OUT<11>        |   11.687|
+OP<1>          |OUT<12>        |   11.171|
+OP<1>          |OUT<13>        |   11.405|
+OP<1>          |OUT<14>        |   11.365|
+OP<1>          |OUT<15>        |   11.611|
+OP<1>          |ZERO           |   13.496|
+---------------+---------------+---------+
+
+
+Analysis completed Sun Apr  7 17:34:24 2013 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 332 MB
+
+
+
