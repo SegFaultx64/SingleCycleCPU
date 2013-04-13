@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    17:27:51 04/07/2013 
+// Create Date:    19:09:42 04/12/2013 
 // Design Name: 
-// Module Name:    TwoBitTrueMux 
+// Module Name:    PC 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,19 +18,23 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mux_1Bit(
-    input [16:0] Input1,
-    input [16:0] Input2,
-	 input Selection,
-    output reg [16:0] Output
+module PC(
+    input [15:0] Target,
+    input Init,
+    input Halt,
+	 input CLK,
+    output reg[15:0] Count
     );
 	 
-	always @ (Selection or Input1 or Input2)
-	begin : MUX
-		case(Selection) 
-			1'b0 : Output = Input1;
-			1'b1 : Output = Input2;
-		endcase 
-	end
+	 always @(posedge CLK)
+	 begin
+		if(Init==1)
+			Count = 0;
+		else if(Halt==1)
+			Count = Count;
+		else
+			Count = Target;
+	 end
+
 
 endmodule

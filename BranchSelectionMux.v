@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module BranchSelectionMux(
+module Mux_BranchSelect(
     input [16:0] Input1,
     input [16:0] Input2,
     input [16:0] Input3,
@@ -41,6 +41,8 @@ module BranchSelectionMux(
 			Output = 22;
 		if( Selection == 5 )
 			Output = 12;
+		if( Selection == 6 )
+			Output = 200;
 	end
 
 endmodule

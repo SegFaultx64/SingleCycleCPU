@@ -18,10 +18,10 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module InputOr0Or1(
+module Mux_RegSrc1(
     input [16:0] Input,
     output reg [16:0] Output,
-    input [1:0] Selection
+    input [2:0] Selection
     );
 	 
 	always @ (Selection or Input)
@@ -34,6 +34,12 @@ module InputOr0Or1(
 			Output = 16'b1;
 		if( Selection == 3)
 			Output = 3;
+		if( Selection == 4)
+			Output = 6;
+		if( Selection == 5)
+			Output = 7;
+		if( Selection == 6)
+			Output = 2;
 	end
 
 endmodule

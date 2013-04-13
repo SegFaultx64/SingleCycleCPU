@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module TwoInputOr10(
+module Mux_MemInData(
     input [16:0] Input1,
     input [16:0] Input2,
     input [2:0] Selection,

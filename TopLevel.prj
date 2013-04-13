@@ -1,0 +1,4 @@
+verilog work "InstROM (2).v"
+verilog work "../Downloads/reg_file.v"
+verilog work "../Downloads/DataRAM (1).v"
+verilog work "TopLevel.v"

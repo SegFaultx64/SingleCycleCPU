@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module GiantMux(
+module Mux_RegDest(
     input [16:0] Input,
     output reg [16:0] Output,
     input [3:0] Selection
@@ -48,6 +48,8 @@ module GiantMux(
 			Output = 16'b1001;
 		if( Selection == 10)
 			Output = 16'b1111;
+		if( Selection == 11)
+			Output = 5;
 	end
 
 endmodule

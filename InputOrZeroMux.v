@@ -18,17 +18,18 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module InputOrZeroMux(
+module Mux_MemDest(
     input [16:0] Input,
     output reg [16:0] Output,
-    input Selection
+    input [1:0] Selection
     );
 	 
 	always @ (Selection or Input)
 	begin : MUX
 		case(Selection) 
-			1'b0 : Output = Input;
-			1'b1 : Output = 16'b0;
+			0 : Output = Input;
+			1 : Output = 16'b0;
+			2 : Output = 10;
 		endcase 
 	end
 

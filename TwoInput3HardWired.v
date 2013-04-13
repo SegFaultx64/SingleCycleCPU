@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module TwoInput3HardWired(
+module Mux_ALU1In2(
     input [16:0] Input1,
     input [16:0] Input2,
     input [3:0] Selection,
@@ -37,6 +37,10 @@ module TwoInput3HardWired(
 			Output = 96;
 		if( Selection == 4)
 			Output = 97;
+		if( Selection == 5)
+			Output = 144;
+		if( Selection == 6)
+			Output = 0;
 	end
 
 

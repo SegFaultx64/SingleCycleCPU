@@ -1,0 +1,5 @@
+set -tmpdir "/students/home/mwalker1/SingleCycle/xst/projnav.tmp"
+set -xsthdpdir "/students/home/mwalker1/SingleCycle/xst"
+elaborate
+-ifn TopLevel.prj
+-ifmt mixed
