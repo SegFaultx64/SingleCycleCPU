@@ -19,8 +19,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Mux_RegSrc1(
-    input [16:0] Input,
-    output reg [16:0] Output,
+    input [15:0] Input,
+    output reg [15:0] Output,
     input [2:0] Selection
     );
 	 
@@ -40,6 +40,8 @@ module Mux_RegSrc1(
 			Output = 7;
 		if( Selection == 6)
 			Output = 2;
+		if(Selection == 7)
+			Output = 4;
 	end
 
 endmodule

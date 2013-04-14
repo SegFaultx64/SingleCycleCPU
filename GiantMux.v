@@ -19,8 +19,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Mux_RegDest(
-    input [16:0] Input,
-    output reg [16:0] Output,
+    input [15:0] Input,
+    output reg [15:0] Output,
     input [3:0] Selection
     );
 	 

@@ -28,10 +28,17 @@ module PC(
 	 
 	 always @(posedge CLK)
 	 begin
-		if(Init==1)
-			Count = 0;
-		else if(Halt==1)
+		//$display("Halt: %d",Halt);
+		$display("-------------------------------");
+		$display("PC: %d",Count);
+		$display("-------------------------------");
+		if(Init)
+			Count = 16'b0;
+		else if(Halt == 1)
+		begin
+			$display("halting");
 			Count = Count;
+		end
 		else
 			Count = Target;
 	 end

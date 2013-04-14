@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 module TopLevel(
 	input Init,
-	input Halt,
 	input CLK,
-	output reg [3:0] Opcode,
+	input Program
+	//output reg [15:0] PC
     );
 
 	// control signals
@@ -31,8 +31,8 @@ module TopLevel(
 	wire [3:0] WriteReg;
 	wire [2:0] RegWriteData;
 	wire [2:0] ALU1arg2;
-	wire MemRead;
-	wire [1:0] MemWrite;
+	wire [1:0] MemRead;
+	wire [1:0] MemWriteIndexController;
 	wire [1:0] MemWriteData;
 	wire [2:0] BranchDest;
 	wire UsuallyZero;
@@ -44,15 +44,18 @@ module TopLevel(
 	wire [2:0] ALUop3;
 	wire [2:0] ALUop4;
 	wire [2:0] ALUop5;
+	wire Halt;
+	wire IfDoneFlag;
+	wire SkipIfNot1Flag;
 	 
 	// Decoder outputs
-	//wire [3:0] Opcode;
-	wire [1:0] Instruction1to0;
+	wire [3:0] Opcode;
+	wire [15:0] Instruction1to0;
 	wire Bit1;
 	wire Bit0;
-    wire [3:0] Instruction5to2;
-    wire [4:0] Instruction5to1;
-    wire [5:0] Instruction5to0;
+   wire [15:0] Instruction5to2;
+   wire [15:0] Instruction5to1;
+   wire [15:0] Instruction5to0;
 
 	// ALU outputs
 	wire ALU1Zero, ALU2Zero, ALU3Zero, ALU4Zero, ALU5Zero, ALU6Zero;
@@ -79,8 +82,8 @@ module TopLevel(
 	// In
 	wire [15:0] RegInputIndex;
 	wire [15:0] RegInputData;
-	wire [3: 0] srcA;
-	wire [3: 0] srcB;
+	wire [15:0] srcA;
+	wire [15:0] srcB;
 
 	// word matcher wires
 	wire [15:0] WordMatcherOut;
@@ -90,20 +93,13 @@ module TopLevel(
 	wire [15:0] BranchStage2;
 	wire [15:0] BranchStage3;
 
-
-	//assign regWriteValue = (MEM_TO_REG==1)?ALUOut:MemOut;
-	assign regWriteValue = ALUOut;
-
-	// assign input to memory
-	assign memWriteValue = ReadB;
-
 	// PC wires
 	wire [15:0] PC;
 
 	//Instruction Rom wires
-	wire [15:0] InstRom1Out;
-	wire [15:0] InstRom2Out;
-	wire [15:0] Instruction;
+	wire [9:0] InstRom1Out;
+	wire [9:0] InstRom2Out;
+	wire [9:0] Instruction;
 
 	// instruction ROM1
 	InstROM1 inst_module1(
@@ -112,7 +108,7 @@ module TopLevel(
 	);
 	
 	// instruction ROM2
-	InstROM1 inst_module2(
+	InstROM2 inst_module2(
 	.InstAddress(PC), 
 	.InstOut(InstRom2Out)
 	);
@@ -126,7 +122,7 @@ module TopLevel(
 	.Bit0(Bit0),
 	.FiveToTwo(Instruction5to2),
 	.FiveToOne(Instruction5to1),
-	.FiveToZero(Instuction5to0),
+	.FiveToZero(Instruction5to0)
 	);
 
 	/*
@@ -134,8 +130,8 @@ module TopLevel(
 	*/
 	
 	// Select which program to run Mux
-	Mux_1Bit rom_mux (
-	.Selection(0),
+	Mux_RomSelect rom_mux (
+	.Selection(Program),
 	.Input1(InstRom1Out),
 	.Input2(InstRom2Out),
 	.Output(Instruction)
@@ -176,16 +172,18 @@ module TopLevel(
 
 	// ALU1 input 2 selection
 	Mux_ALU1In2 alu1Input_mux (
-		.Input1(Bit1),
-		.input2(ReadB),
+		.Input1({15'b0, Bit1}),
+		.Input2(ReadB),
+		.Input3(MemOut),
 		.Selection(ALU1arg2),
 		.Output(ALU1Input2)
 	);
 
 	// Select mem address to read from
-	Mux_1Bit memReadIndex_mux (
+	Mux_2Bit memReadIndex_mux (
 		.Input1(ReadA),
-		.Input2(ReadB),
+		.Input2(Instruction5to0),
+		.Input3(ReadB),
 		.Selection(MemRead),
 		.Output(MemReadIndex)
 	);
@@ -194,13 +192,13 @@ module TopLevel(
 	Mux_MemDest memDest_mux (
 		.Input(ReadA),
 		.Output(MemWriteIndex),
-		.Selection(MemWrite)
+		.Selection(MemWriteIndexController)
 	);
 
 	// select data to write to memory
 	Mux_MemInData memInput_mux (
-		.Input1(Instruction5to0),
-		.Input2(ReadB),
+		.Input1(ReadB),
+		.Input2(Instruction5to0),
 		.Output(MemWriteInput),
 		.Selection(MemWriteData)
 	);
@@ -209,32 +207,33 @@ module TopLevel(
 	Mux_BranchSelect branchSelect_mux (
 		.Input1(ALU6Out),
 		.Input2(Instruction5to1),
-		.Input3(ReadB),
+		.Input3(ReadA),
 		.Input4(WordMatcherOut),
-		.Output(BranchStage1)
+		.Output(BranchStage1),
+		.Selection(BranchDest)
 	);
 
 	// select if greater than 144
 	Mux_1Bit branchSubSelect1_mux (
 		.Input1(BranchStage1),
 		.Input2(ALU6Out),
-		.Selection(ALU1Zero),
+		.Selection(~ALU1Zero & IfDoneFlag),
 		.Output(BranchStage2)
 	);
 
 	// select if not one
 	Mux_1Bit branchSubSelect2_mux (
-		.Input1(ALU6Out),
-		.Input2(BranchStage2),
-		.Selection(ALU5Zero),
+		.Input1(BranchStage2),
+		.Input2(ALU6Out),
+		.Selection(ALU5Zero & SkipIfNot1Flag),
 		.Output(BranchStage3)
 	);
 
 	// the word matcher
 	WordMatcher  wordMatcher (
 		.FullMatch(ALU1Zero),
-		.FirstHalf(ALU3Zero),
-		.SecondHalf(ALU4Zero),
+		.FirstHalf(ALU4Zero),
+		.SecondHalf(ALU3Zero),
 		.Flag(Bit0),
 		.Output(WordMatcherOut)
 	);
@@ -264,7 +263,7 @@ module TopLevel(
 
 	ALU alu3 (
 		.INPUTA(MemOut),
-		.INPUTB(ReadB),
+		.INPUTB(ReadA),
 		.OP(ALUop3),
 		.OUT(ALU3Out),
 		.ZERO(ALU3Zero)
@@ -273,7 +272,7 @@ module TopLevel(
 
 	ALU alu4 (
 		.INPUTA(MemOut),
-		.INPUTB(ReadB),
+		.INPUTB(ReadA),
 		.OP(ALUop4),
 		.OUT(ALU4Out),
 		.ZERO(ALU4Zero)
@@ -318,7 +317,7 @@ module TopLevel(
 		.RegWriteData(RegWriteData),
 		.ALU1arg2(ALU1arg2),
 		.MemRead(MemRead),
-		.MemWrite(MemWrite),
+		.MemWriteIndex(MemWriteIndexController),
 		.MemWriteData(MemWriteData),
 		.BranchDest(BranchDest),
 		.UsuallyZero(UsuallyZero),
@@ -330,12 +329,15 @@ module TopLevel(
 		.ALUop3(ALUop3),
 		.ALUop4(ALUop4),
 		.ALUop5(ALUop5),
+		.Halt(Halt),
+		.SkipIfNot1Flag(SkipIfNot1Flag),
+		.IfDoneFlag(IfDoneFlag)
 	);
 
 
 	reg_file register_module (
 		.CLK(CLK), 
-		.RegWrite((ALU2Zero & UsuallyZero) | RegWriteFlag), 
+		.RegWrite((~ALU2Zero & UsuallyZero) | RegWriteFlag), 
 		.srcA(srcA), //concatenate with 0 to give us 4 bits
 		.srcB(srcB), 
 		.writeReg(RegInputIndex), 	  // mux above
@@ -345,9 +347,10 @@ module TopLevel(
 	);
 
 	DataRAM Data_Module(
-		.DataAddress(MemReadIndex), 
+		.DataAddress(MemReadIndex),
+		.MemWriteIndex(MemWriteIndex),		
 		.ReadMem(MemReadFlag), 
-		.WriteMem(MemMWriteFlag), 
+		.WriteMem(MemWriteFlag), 
 		.DataIn(MemWriteInput), 
 		.DataOut(MemOut), 
 		.CLK(CLK)
@@ -364,18 +367,42 @@ module TopLevel(
 	);
 	
 	// might help debug
+	
 	/*
-	always@(SE_Immediate)
+	always@(MemReadFlag)
 	begin 
-	$display("SE Immediate = %d",SE_Immediate);
+	$display("MemReadFlag = %d",MemReadFlag);
+	end
+
+	always@(MemOut)
+	begin 
+	$display("MemOut = %d",MemOut);
+	end
+	
+	always@(CLK)
+	begin
+	$display("Instruction5to0 - %d",Instruction5to0);
+	end
+	
+	always@(MemReadIndex)
+	begin 
+	$display("MemReadIndex = %d",MemReadIndex);
+	end
+	*/
+	always@(PC)
+	begin
+	$display("BranchDest - %d",BranchDest);
+	$display("BranchStage1 - %d",BranchStage1);
+	$display("BranchStage2 - %d",BranchStage2);
+	$display("BranchStage3 - %d",BranchStage3);
+	end 
+	/*
+	always@(ReadA)
+	begin
+	$display("Read A: %d",ReadA);
+	$display("Src A: %d",srcA);
 	end
 	*/
 	
-	// Todo this duplicates PC functionality
-	always@(posedge CLK)
-	if (start == 1)
-		InstCounter = 0;
-	else if(halt == 0)
-		InstCounter = InstCounter+1;
 
 endmodule

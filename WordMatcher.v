@@ -23,7 +23,7 @@ module WordMatcher(
     input FirstHalf,
     input SecondHalf,
     input Flag,
-	 output reg [16:0] Output
+	 output reg [15:0] Output
     );
 	 
 	always @ (FullMatch or FirstHalf or SecondHalf or Flag)
@@ -32,7 +32,7 @@ module WordMatcher(
 		Output = 10;
 	else if (FullMatch)
 		Output = 8;
-	else if (SecondHalf)
+	else if (FirstHalf)
 		Output = 5;
 	else
 		Output = 2;

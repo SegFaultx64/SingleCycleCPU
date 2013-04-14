@@ -19,9 +19,9 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Mux_RegSrc2(
-    input [16:0] Input1,
-	 input [16:0] Input2,
-    output reg [16:0] Output,
+    input [15:0] Input1,
+	 input [15:0] Input2,
+    output reg [15:0] Output,
     input [2:0] Selection
     );
 	 
@@ -33,6 +33,7 @@ module Mux_RegSrc2(
 			2 : Output = 4;
 			3 : Output = 15;
 			4 : Output = Input2;
+			5 : Output = 3;
 		endcase 
 	end
 

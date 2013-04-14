@@ -19,16 +19,17 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Mux_RegInData(
-    input [16:0] Input1,
-    input [16:0] Input2,
-    input [16:0] Input3,
-	 input [16:0] Input4,
-	 input [16:0] PC,
-    input [3:0] Selection,
-    output reg [16:0] Output
+    input [15:0] Input1,
+    input [15:0] Input2,
+    input [15:0] Input3,
+	 input [15:0] Input4,
+	 input [15:0] PC,
+    input [2:0] Selection,
+    output reg [15:0] Output
     );
 	 
 	always @ (Selection or Input1 or Input2 or Input3 or Input4 or PC)
+	
 	begin
 		if( Selection == 0)
 			Output = Input1;

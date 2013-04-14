@@ -20,7 +20,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module InstROM2(InstAddress, InstOut);
-    input [7:0] InstAddress;
+    input [15:0] InstAddress;
     output [9:0] InstOut;
 	 
 	 reg[9:0] InstOut;

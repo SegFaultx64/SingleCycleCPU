@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    17:52:34 04/07/2013 
+// Create Date:    17:27:51 04/07/2013 
 // Design Name: 
-// Module Name:    TwoInputOr10 
+// Module Name:    TwoBitTrueMux 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,22 +18,25 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mux_MemInData(
+module Mux_2Bit(
     input [15:0] Input1,
     input [15:0] Input2,
-    input [1:0] Selection,
+    input [15:0] Input3,
+    input [15:0] Input4,
+	 input [1:0] Selection,
     output reg [15:0] Output
     );
-	
-	
-	always @ (Selection or Input1 or Input2)
+	 
+	always @ (Selection or Input1 or Input2 or Input3 or Input4)
 	begin
-		if( Selection == 0)
+		if (Selection == 0)
 			Output = Input1;
-		if( Selection == 1)
+		else if (Selection == 1)
 			Output = Input2;
-		if( Selection == 2)
-			Output = 16'b1010;
+		else if (Selection == 2)
+			Output = Input3;
+		else if (Selection == 3)
+			Output = Input3;
 	end
-	
+
 endmodule

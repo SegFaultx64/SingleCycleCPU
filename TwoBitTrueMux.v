@@ -19,18 +19,18 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Mux_1Bit(
-    input [16:0] Input1,
-    input [16:0] Input2,
+    input [15:0] Input1,
+    input [15:0] Input2,
 	 input Selection,
-    output reg [16:0] Output
+    output reg [15:0] Output
     );
 	 
 	always @ (Selection or Input1 or Input2)
-	begin : MUX
-		case(Selection) 
-			1'b0 : Output = Input1;
-			1'b1 : Output = Input2;
-		endcase 
+	begin
+		if (Selection == 0)
+			Output = Input1;
+		else if (Selection == 1)
+			Output = Input2;
 	end
 
 endmodule

@@ -19,10 +19,11 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Mux_ALU1In2(
-    input [16:0] Input1,
-    input [16:0] Input2,
-    input [3:0] Selection,
-    output reg [16:0] Output
+    input [15:0] Input1,
+    input [15:0] Input2,
+    input [15:0] Input3,
+    input [2:0] Selection,
+    output reg [15:0] Output
     );
 	 
 	always @ (Selection or Input1 or Input2)
@@ -41,6 +42,8 @@ module Mux_ALU1In2(
 			Output = 144;
 		if( Selection == 6)
 			Output = 0;
+		if(Selection == 7)
+			Output = Input3;
 	end
 
 
